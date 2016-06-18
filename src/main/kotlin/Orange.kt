@@ -43,3 +43,7 @@ object Orange {
         }
     }
 }
+
+object Kaori{
+
+}
