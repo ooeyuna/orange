@@ -1,0 +1,8 @@
+datasource:
+  url: "jdbc:mysql://dev:3306/orange"
+  username: root
+  password: 111111
+
+port: 8080
+
+debug: true

@@ -1,0 +1,26 @@
+{
+  "userjson": {
+    "currExp": 50,
+    "stows": 0,
+    "comments": 0,
+    "gender": 0,
+    "level": 0,
+    "sign": "",
+    "follows": 2,
+    "lastLoginDate": "2016-05-28 13:15:20.0",
+    "avatar": "http://cdn.aixifan.com/dotnet/20120923/style/image/avatar.jpg",
+    "posts": 0,
+    "followed": 0,
+    "lastLoginIp": "121.205.165.*",
+    "fans": 0,
+    "uid": 2840302,
+    "regTime": "2015-12-17 13:31:49.0",
+    "nextLevelNeed": 100,
+    "name": "怂货一枚",
+    "dTime": "",
+    "expPercent": 0,
+    "isFriend": 0,
+    "views": 0
+  },
+  "success": true
+}
