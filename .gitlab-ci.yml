@@ -11,7 +11,7 @@ deploy_staging:
     - /opt/gradle/bin/gradle -q build
     - scp build/distributions/orange-0.1.zip root@meiling:/tmp/
     - version=`date '+%s'`
-    - ssh root@meiling "mkdir -p /opt/orange/{shared,releases}; [[ -e /tmp/orange-0.1 ]] && rm -rf /tmp/orange-0.1; unzip -d /tmp /tmp/orange-0.1.zip ; echo $version ; mv /tmp/orange-0.1 /opt/orange/releases/$version ; [[ -e /opt/orange/current ]] && rm /opt/orange/current; ln -s /opt/orange/releases/$version /opt/orange/current; systemctl restart orange"
+    - ssh root@dev "mkdir -p /opt/orange/{shared,releases}; [[ -e /tmp/orange-0.1 ]] && rm -rf /tmp/orange-0.1; unzip -d /tmp /tmp/orange-0.1.zip ; echo $version ; mv /tmp/orange-0.1 /opt/orange/releases/$version ; [[ -e /opt/orange/current ]] && rm /opt/orange/current; ln -s /opt/orange/releases/$version /opt/orange/current; systemctl restart orange"
   only:
     - master
   tags:

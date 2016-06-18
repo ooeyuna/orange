@@ -58,7 +58,17 @@
 
 ## 部署
 
-参考[`gitlab-ci.yml`](.gitlab-ci.yml)文件(没试过,不保证可用,但大致姿势可以参考),启动命令参考如下:
+参考[`gitlab-ci.yml`](.gitlab-ci.yml)文件(没试过,不保证可用,但大致姿势可以参考)
+
+在项目路径下执行
+
+```
+gradle build
+```
+
+gradle的application插件会在`build/distributions`下生成打包好的zip和tar,内容都是一样的,解压任意一个到目标目录,然后执行`./bin/orange`即可
+
+启动命令参考如下:
 
 ```
     JAVA_OPTS="-Dorange.roles=db,web,job -Dorange.dev=staging -D" ./bin/orange

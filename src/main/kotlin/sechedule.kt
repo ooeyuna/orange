@@ -1,6 +1,8 @@
-import lib.AcFunApi
-import lib.BilibiliApi
-import org.quartz.*
+import job.AcFunJob
+import job.BilibiliJob
+import org.quartz.JobBuilder
+import org.quartz.SimpleScheduleBuilder
+import org.quartz.TriggerBuilder
 import org.quartz.impl.StdSchedulerFactory
 
 /**
@@ -21,17 +23,5 @@ object Schedule {
         scheduler.scheduleJob(acjob, actrigger)
         scheduler.scheduleJob(bjob, btrigger)
         scheduler.start();
-    }
-}
-
-class AcFunJob : Job {
-    override fun execute(context: JobExecutionContext?) {
-        AcFunApi.fetchUser()
-    }
-}
-
-class BilibiliJob : Job {
-    override fun execute(context: JobExecutionContext?) {
-        BilibiliApi.fetchUser()
     }
 }
