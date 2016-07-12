@@ -8,6 +8,7 @@ data class Config(
         val datasource: DataSourceConfig
         , val port: Int
         , val debug: Boolean = false
+        , val kafka: Map<String, String>
 ) {
     lateinit var roles: List<String>
     lateinit var env: String

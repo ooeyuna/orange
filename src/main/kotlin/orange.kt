@@ -44,6 +44,6 @@ object Orange {
     }
 }
 
-object Kaori{
+object Kaori {
 
 }
