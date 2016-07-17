@@ -1,2 +1,8 @@
 rootProject.name = 'orange'
+include 'orange-core'
+include 'orange-web'
+include 'orange-db'
+include 'orange-quartz'
+include 'orange-example-helloworld'
+include 'orange-example-web-with-exposed'
 
