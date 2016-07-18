@@ -1,6 +1,6 @@
 package controller
 
-import moe.yuna.orange.web.WebServer
+import ooeyuna.rika.orange.web.WebServer
 
 /**
  * Created by sanairika on 2016/07/17.

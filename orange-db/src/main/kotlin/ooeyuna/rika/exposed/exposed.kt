@@ -1,8 +1,8 @@
-package moe.yuna.exposed
+package ooeyuna.rika.exposed
 
 import com.alibaba.druid.pool.DruidDataSourceFactory
-import moe.yuna.orange.Orange
-import moe.yuna.orange.config
+import ooeyuna.rika.orange.Orange
+import ooeyuna.rika.orange.config
 import org.jetbrains.exposed.sql.Database
 import java.util.*
 import javax.sql.DataSource

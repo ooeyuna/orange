@@ -1,8 +1,8 @@
-package moe.yuna.quartz
+package ooeyuna.rika.quartz
 
-import moe.yuna.orange.Orange
-import moe.yuna.orange.hasRole
-import moe.yuna.orange.plugin
+import ooeyuna.rika.orange.Orange
+import ooeyuna.rika.orange.hasRole
+import ooeyuna.rika.orange.plugin
 import org.quartz.impl.StdSchedulerFactory
 
 /**

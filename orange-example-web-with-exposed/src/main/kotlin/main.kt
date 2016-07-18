@@ -1,5 +1,5 @@
 import model.User
-import moe.yuna.orange.Orange
+import ooeyuna.rika.orange.Orange
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
 

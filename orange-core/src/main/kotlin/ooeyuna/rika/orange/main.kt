@@ -1,4 +1,4 @@
-package moe.yuna.orange
+package ooeyuna.rika.orange
 
 import org.slf4j.LoggerFactory
 

@@ -1,4 +1,4 @@
-package moe.yuna.orange
+package ooeyuna.rika.orange
 
 /**
  * Created by sanairika on 2016/07/17.

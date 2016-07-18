@@ -1,6 +1,6 @@
 package init
 
-import moe.yuna.orange.web.WebServer
+import ooeyuna.rika.orange.web.WebServer
 
 
 /**

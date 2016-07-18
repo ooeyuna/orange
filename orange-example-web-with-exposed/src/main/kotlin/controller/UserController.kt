@@ -1,8 +1,8 @@
 package controller
 
 import model.User
-import moe.yuna.orange.web.BadRequest
-import moe.yuna.orange.web.WebServer
+import ooeyuna.rika.orange.web.BadRequest
+import ooeyuna.rika.orange.web.WebServer
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll

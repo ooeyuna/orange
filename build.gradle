@@ -8,7 +8,8 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'co.riiid:gradle-github-plugin:0.4.2'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.1'
+
     }
 }
 
@@ -18,7 +19,7 @@ allprojects {
 
 subprojects {
 
-    group 'moe.yuna'
+    group 'ooeyuna.rika'
     version '0.1'
 
     repositories {
@@ -29,6 +30,10 @@ subprojects {
             url "https://dl.bintray.com/kotlin/exposed"
         }
         maven { url "https://jitpack.io" }
+        maven {
+            url "http://dl.bintray.com/ooeyuna/rika"
+        }
+
     }
 
     apply plugin: 'kotlin'
@@ -101,26 +106,52 @@ project(':orange-quartz') {
 configure(subprojects.findAll { !it.name.startsWith("orange-example") }) {
 
     apply plugin: "maven"
+    apply plugin: 'maven-publish'
+    apply plugin: 'com.jfrog.bintray'
 
-    build.doLast {
-        pom().writeTo("$buildDir/poms/${project.name}-${version}.pom")
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+        // don't include or exclude anything explicitly by default. See SPR-12085.
+    }
+    artifacts {
+        archives sourcesJar
     }
 
-    apply plugin: 'co.riiid.gradle'
-    github {
-        owner = "ooeyuna"
-        repo = "orange"
-        token = "3ef0ef183e81e64721e956751bb5acb2ee31d721"
-        tagName = "0.2"
-        targetCommitish = "master"
-        name = "v0.1"
-        body = """
-        init
-"""
-        assets = [
-                "${project.buildDir}/libs/${project.name}-${version}.jar",
-                "${project.buildDir}/poms/${project.name}-${version}.pom"
-        ]
+    publishing {
+        publications {
+
+            projectPublication(MavenPublication) {
+                groupId getGroup()
+                artifactId project.name
+                version '0.1'
+
+                from components.java
+
+                artifact sourcesJar
+            }
+        }
+    }
+
+    bintray {
+        user = property("bintrayUser")
+        key = property("bintrayKey")
+        publications = ['projectPublication']
+        override = true
+        pkg {
+            repo = 'rika'
+            name = project.name
+            userOrg = property("bintrayUser")
+            licenses = ['Apache-2.0']
+            websiteUrl = 'https://github.com/ooeyuna/orange'
+            issueTrackerUrl = 'https://github.com/ooeyuna/orange/issues'
+            vcsUrl = 'https://github.com/ooeyuna/orange.git'
+            publicDownloadNumbers = true
+            version {
+                name = "0.1"
+                desc = "micro service for kotlin"
+            }
+        }
     }
 
 }

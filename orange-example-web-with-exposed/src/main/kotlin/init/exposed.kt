@@ -1,6 +1,6 @@
 package init
 
-import moe.yuna.exposed.Exposed
+import ooeyuna.rika.exposed.Exposed
 
 /**
  * Created by sanairika on 2016/07/18.

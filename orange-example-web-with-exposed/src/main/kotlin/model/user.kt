@@ -1,6 +1,6 @@
 package model
 
-import moe.yuna.exposed.timestamp
+import ooeyuna.rika.exposed.timestamp
 import org.jetbrains.exposed.dao.IntIdTable
 
 /**

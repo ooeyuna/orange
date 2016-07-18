@@ -1,7 +1,7 @@
-package moe.yuna.orange.web
+package ooeyuna.rika.orange.web
 
 import com.fasterxml.jackson.core.JsonProcessingException
-import moe.yuna.orange.*
+import ooeyuna.rika.orange.*
 import org.slf4j.LoggerFactory
 import spark.*
 

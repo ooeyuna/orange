@@ -1,4 +1,4 @@
-package moe.yuna.exposed
+package ooeyuna.rika.exposed
 
 import org.jetbrains.exposed.sql.Table
 import org.joda.time.DateTime

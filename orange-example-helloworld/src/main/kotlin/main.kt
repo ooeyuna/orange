@@ -1,4 +1,4 @@
-import moe.yuna.orange.Orange
+import ooeyuna.rika.orange.Orange
 
 /**
  * Created by sanairika on 2016/07/17.
