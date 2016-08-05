@@ -1,9 +1,9 @@
 package init
 
-import moe.yuna.Orange
-import moe.yuna.Order
-import moe.yuna.config
-import moe.yuna.hasRole
+import ooeyuna.rika.exposed.Exposed
+import ooeyuna.rika.orange.Orange
+import ooeyuna.rika.orange.Order
+import ooeyuna.rika.orange.hasRole
 import org.flywaydb.core.Flyway
 
 /**
@@ -11,14 +11,11 @@ import org.flywaydb.core.Flyway
  */
 object Flyway {
 
-  @Order(-1)
+  @Order(0)
   fun register() {
     if (Orange.hasRole("db")) {
       val flyway = Flyway()
-      flyway.setDataSource(Orange.config()["datasource"]["url"].asText()
-          , Orange.config()["datasource"]["username"].asText()
-          , Orange.config()["datasource"]["password"].asText()
-      );
+      flyway.setDataSource(Exposed.datasource)
       flyway.migrate()
     }
   }

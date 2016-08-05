@@ -19,17 +19,17 @@ object WebServer {
     }
   }
 
-  fun getIntParam(req: Request, key: String): Int? = processBadRequest(key) { req.params(key).toInt() }
-  fun getLongParam(req: Request, key: String): Long? = processBadRequest(key) { req.params(key).toLong() }
-  fun getDoubleParam(req: Request, key: String): Double? = processBadRequest(key) { req.params(key).toDouble() }
-  fun getFloatParam(req: Request, key: String): Float? = processBadRequest(key) { req.params(key).toFloat() }
+  fun getIntParam(req: Request, key: String): Int = processBadRequest(key) { req.params(key).toInt() }
+  fun getLongParam(req: Request, key: String): Long = processBadRequest(key) { req.params(key).toLong() }
+  fun getDoubleParam(req: Request, key: String): Double = processBadRequest(key) { req.params(key).toDouble() }
+  fun getFloatParam(req: Request, key: String): Float = processBadRequest(key) { req.params(key).toFloat() }
 
-  fun getIntQueryParam(req: Request, key: String): Int? = processBadRequest(key) { req.queryParams(key).toInt() }
-  fun getLongQueryParam(req: Request, key: String): Long? = processBadRequest(key) { req.queryParams(key).toLong() }
-  fun getDoubleQueryParam(req: Request, key: String): Double? = processBadRequest(key) { req.queryParams(key).toDouble() }
-  fun getFloatQueryParam(req: Request, key: String): Float? = processBadRequest(key) { req.queryParams(key).toFloat() }
+  fun getIntQueryParam(req: Request, key: String): Int = processBadRequest(key) { req.queryParams(key).toInt() }
+  fun getLongQueryParam(req: Request, key: String): Long = processBadRequest(key) { req.queryParams(key).toLong() }
+  fun getDoubleQueryParam(req: Request, key: String): Double = processBadRequest(key) { req.queryParams(key).toDouble() }
+  fun getFloatQueryParam(req: Request, key: String): Float = processBadRequest(key) { req.queryParams(key).toFloat() }
 
-  fun <T> processBadRequest(key: String, get: (String) -> T?): T? = try {
+  fun <T> processBadRequest(key: String, get: (String) -> T): T = try {
     get.invoke(key)
   } catch (ex: Exception) {
     throw BadRequest("$key Type Error")

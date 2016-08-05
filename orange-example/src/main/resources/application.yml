@@ -1,0 +1,6 @@
+scanPackage: ""
+
+port: 8081
+
+datasource:
+  url: "jdbc:h2:mem:test"

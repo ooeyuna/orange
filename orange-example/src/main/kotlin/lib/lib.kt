@@ -1,6 +1,5 @@
 package lib
 
-import moe.yuna.Orange
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.JsonDeserializer
@@ -8,7 +7,10 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.github.kittinunf.fuel.httpGet
 import model.Acers
 import model.Bogs
+import ooeyuna.rika.orange.Orange
+import ooeyuna.rika.orange.jackson
 import org.jetbrains.exposed.dao.EntityID
+import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.insertIgnore
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
@@ -34,7 +36,7 @@ object AcFunApi {
         if (res.httpStatusCode != 200 || error != null) {
           log.warn("laji ac uid:$uid")
         } else {
-          val root = Orange.json.readValue(data, AcFunCommon::class.java)
+          val root = Orange.jackson().readValue(data, AcFunCommon::class.java)
           if (root.success) {
             transaction {
               val user = root.userjson!!
@@ -88,10 +90,10 @@ object BilibiliApi {
         if (res.httpStatusCode != 200 || error != null) {
           log.warn("doushi shijie de cuo uid:$uid")
         } else {
-          val root = Orange.json.readValue(data, BilibiliUser::class.java)
+          val root = Orange.jackson().readValue(data, BilibiliUser::class.java)
           if (root.code == 0) {
             transaction {
-              Bogs.insertIgnore {
+              Bogs.insert {
                 it[id] = EntityID(uid, Bogs)
                 it[name] = root.name
                 it[create_time] = DateTime.now()

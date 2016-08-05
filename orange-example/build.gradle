@@ -1,10 +1,13 @@
+group 'ooeyuna.rika'
 version '0.1'
 
 buildscript {
     ext.kotlin_version = "1.0.2"
 
     repositories {
+        mavenLocal()
         mavenCentral()
+
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -14,11 +17,29 @@ buildscript {
 apply plugin: 'kotlin'
 
 repositories {
+    mavenLocal()
+    maven {
+        url "https://dl.bintray.com/kotlin/exposed"
+    }
+    maven {
+        url "http://dl.bintray.com/ooeyuna/rika"
+    }
+    jcenter()
     mavenCentral()
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "ooeyuna.rika:orange-web:0.1"
+    compile "ooeyuna.rika:orange-db:0.1"
+    compile "ooeyuna.rika:orange-quartz:0.1"
+    compile "com.h2database:h2:1.4.192"
+
+    testCompile(
+            "org.jetbrains.kotlin:kotlin-test:$kotlin_version",
+            "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version",
+            'junit:junit:4.12'
+    )
 }
 
 apply plugin: 'application'

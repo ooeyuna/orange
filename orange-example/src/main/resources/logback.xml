@@ -5,10 +5,16 @@
             <pattern>%d %contextName [%t] %level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    <logger name="moe.yuna" level="DEBUG" additivity="false">
+    <logger name="ooeyuna.rika" level="DEBUG" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <root level="INFO">
+    <logger name="org" level="WARN" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="spark" level="WARN" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

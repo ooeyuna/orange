@@ -3,8 +3,8 @@ package init
 /**
  * Created by sanairika on 2016/07/17.
  */
-import moe.yuna.*
-import moe.yuna.plugin.ErrorHandle
+import ooeyuna.rika.orange.*
+import ooeyuna.rika.orange.web.ErrorHandle
 import spark.Spark
 
 /**
@@ -17,7 +17,7 @@ object Web {
     if (Orange.hasRole("web")) {
       Spark.port(Orange.config()["port"]?.asInt() ?: 8080)
       Orange.plugin("controller")
-      Spark.get("", { req, res -> "<code>yes we can</code>" })
+      Spark.get("", { req, res -> "( ゜- ゜)つロ 乾杯~ - bilibili" })
       Spark.exception(Exception::class.java, ErrorHandle())
     }
   }
